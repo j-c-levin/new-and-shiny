@@ -1,6 +1,7 @@
 # new-and-shiny
 New &amp; Shiny
 
+[![Build Status](https://travis-ci.org/j-c-levin/new-and-shiny.svg?branch=master)](https://travis-ci.org/j-c-levin/new-and-shiny)
 # responses
 
 ### response.body
