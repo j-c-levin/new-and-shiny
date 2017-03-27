@@ -1,0 +1,19 @@
+{
+  "name": "new_and_shiny",
+  "version": "1.0.0",
+  "description": "New &amp; Shiny",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-c-levin/new-and-shiny.git"
+  },
+  "author": "joshua levin",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/j-c-levin/new-and-shiny/issues"
+  },
+  "homepage": "https://github.com/j-c-levin/new-and-shiny#readme"
+}
