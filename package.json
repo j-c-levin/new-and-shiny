@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/j-c-levin/new-and-shiny/issues"
   },
-  "homepage": "https://github.com/j-c-levin/new-and-shiny#readme"
+  "homepage": "https://github.com/j-c-levin/new-and-shiny#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "cheerio": "^0.22.0",
+    "mocha": "^3.2.0"
+  }
 }
