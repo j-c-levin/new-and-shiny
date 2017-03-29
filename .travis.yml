@@ -1,5 +1,11 @@
 language: node_js
 node_js:
-  - "7"
+  - "7":
 notifications:
   email: false
+# Install phase
+install:
+  - npm install
+# Run tests
+script:
+  - npm test
