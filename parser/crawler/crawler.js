@@ -13,5 +13,13 @@ module.exports = {
     getImageUrls: () => {
         let images = $('img');
         return images;
+    },
+    matchImageWithSelector: (images, selector) => {
+        // Finds and returns the first match
+        return images.map((index, element) => {
+            if (element.attribs.src.match(new RegExp(selector))) {
+                return element;
+            }
+        })[0];
     }
 };

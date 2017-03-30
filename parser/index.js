@@ -13,14 +13,17 @@ module.exports = {
         // Retrieve the image urlS
         let imageArray = crawler.getImageUrls();
         // find a regex match
-        let imageName = imageArray.map((count, image) => {
-            if (image.attribs.src.match(new RegExp(currentSignature.imageIdentifier))) {
-                return image.attribs.src;
-            }
-        })[0];
+        let imageName = crawler.matchImageWithSelector(imageArray, currentSignature.imageIdentifier);
         // Get back the correctly formatted image url from the image name
-        let url = signature.imageNameToUrl(imageName, currentSignature.imageNameToUrl);
+        let url = signature.imageNameToUrl(imageName.attribs.src, currentSignature.imageNameToUrl);
         console.log(url);
+        module.exports.findLast();
+    },
+    findLast: () => {
+        // Retrieve the image urlS
+        let imageArray = crawler.getImageUrls();
+        let result = crawler.matchImageWithSelector(imageArray, currentSignature.linkToNextOrLast);
+        console.log(result.parent.attribs.href);
     }
 };
 // If local
@@ -36,7 +39,7 @@ let online = () => {
     let request = require('superagent');
     // Get pages
     request
-        .get('http://www.collectedcurios.com/sequentialart.php?s=977')
+        .get('http://www.collectedcurios.com/sequentialart.php?s=975')
         .then((res) => {
             module.exports.parse(res);
         })

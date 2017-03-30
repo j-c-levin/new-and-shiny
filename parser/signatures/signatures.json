@@ -2,6 +2,7 @@
     {
         "name": "sequential art",
         "imageIdentifier": "^SA",
-        "imageNameToUrl": "www.collectedcurios.com/${}"
+        "imageNameToUrl": "www.collectedcurios.com/${}",
+        "linkToNextOrLast": "^Nav_Last"
     }
 ]
