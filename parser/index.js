@@ -3,20 +3,23 @@
 let useOnline = false;
 // Crawler.js
 let crawler = require('./crawler/crawler');
-// Signatures file
-let signatures = require('./signatures/signatures').getSignature(1);
+// Signatures file and the intended signature
+let signature = require('./signatures/signatures');
+let currentSignature = signature.getSignature(0);
 module.exports = {
     // Generic parsing
     parse: (html) => {
         crawler.loadHtml(html);
-        // Retrieve the image url that matches the regex provided
+        // Retrieve the image urlS
         let imageArray = crawler.getImageUrls();
+        // find a regex match
         let imageName = imageArray.map((count, image) => {
-            if (image.attribs.src.match(signatures.imageIdentifier)) {
+            if (image.attribs.src.match(new RegExp(currentSignature.imageIdentifier))) {
                 return image.attribs.src;
             }
         })[0];
-        let url = signatures.imageNameToUrl(imageName);
+        // Get back the correctly formatted image url from the image name
+        let url = signature.imageNameToUrl(imageName, currentSignature.imageNameToUrl);
         console.log(url);
     }
 };
