@@ -28,6 +28,29 @@ module.exports = {
     // Parses the signature imageNameToUrl and returns the correct url
     imageNameToUrl: (imageName, signatureFormat) => {
         signatureFormat = signatureFormat.split('${}');
+        if (signatureFormat.length < 2) {
+            throw 'Signature formation must include "${}"';
+        } 
         return `${signatureFormat[0]}${imageName}${signatureFormat[1]}`;
+    },
+    // Does exactly the same thing as imageNameToUrl but I wanted to avoid confusion in the naming
+    // So underneath it just quietly passes everything to imageNameToUrl
+    linkToUrl: (linkName, signatureFormat) => {
+        return module.exports.imageNameToUrl(linkName, signatureFormat);
+    },
+    setNewData: (id, currentSignature) => {
+        // Assign the new data back into the array
+        signatureObject[id] = currentSignature;
+        // Get signature object into a correct mapped array signatureFormat
+        let dataToWrite = module.exports.prepareSignaturesForWriting();
+        // Write the file out
+        fs.writeFileSync(path.join(__dirname, 'signatures.json'), JSON.stringify(dataToWrite, null, 4));
+        console.log('written out');
+    },
+    prepareSignaturesForWriting: () => {
+        // Map the signature object back to an array
+        return Object.keys(signatureObject).map((index, key) => {
+            return signatureObject[key];
+        });
     }
 };
