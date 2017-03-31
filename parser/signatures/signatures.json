@@ -1,0 +1,11 @@
+[
+    {
+        "name": "sequential art",
+        "imageIdentifier": "^SA",
+        "imageNameToUrl": "www.collectedcurios.com/${}",
+        "linkToNextOrLast": "^Nav_Last",
+        "linkToUrl": "http://www.collectedcurios.com${}",
+        "latestPageUrl": "http://www.collectedcurios.com/sequentialart.php?s=980",
+        "latestImageUrl": "www.collectedcurios.com/SA_0980_small.jpg"
+    }
+]

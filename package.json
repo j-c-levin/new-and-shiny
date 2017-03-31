@@ -4,7 +4,8 @@
   "description": "New &amp; Shiny",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"testing\""
+    "test": "mocha **/*.spec.js",
+    "test-watch": "mocha **/*.spec.js --watch --reporter min"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,14 @@
   "dependencies": {
     "chai": "^3.5.0",
     "cheerio": "^0.22.0",
-    "mocha": "^3.2.0"
+    "eslint-plugin-mocha": "^4.9.0",
+    "mocha": "^3.2.0",
+    "superagent": "^3.5.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^7.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1"
   }
 }
